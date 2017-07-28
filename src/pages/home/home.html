@@ -6,23 +6,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content id="everything" padding>
 
 
   <p>
     Geo Location Example
   </p>
 
-  <button (click)="initMap()">click me</button>
+  <ion-row>
+    <ion-col width-50 style="text-align: center">      
+      <button id="btnClickMe" (tap)="initMap($event)">click me {{postCode}}</button><br>
+    </ion-col>
+  </ion-row>
 
-  <div id="map">
-    
+  <!--adds space between the button and the map-->
+  <div style="padding-top: 1%"></div>
+  <!--area the map is displayed in-->
+  <div id="map"></div>
+
+
+  <div *ngFor = 'let lst of appList'>
+    <ul>
+      <li>{{lst.ID}}</li>
+    </ul>
   </div>
 
-  <div>
 
-  </div>
+  <ion-card id="ionCard" >
+    Postcode: {{appPostCode}}
+  </ion-card>
 
-  
 
 </ion-content>
