@@ -9,7 +9,7 @@ import { } from '@types/googlemaps';
 var latitude = 0;
 var longitude = 0;
 var postCode;
-var thisString = "I am a string";
+var weather;
 
 @Component({
   selector: 'page-home',
@@ -21,16 +21,23 @@ var thisString = "I am a string";
 
 export class HomePage {  
 
+
   //  https://stackoverflow.com/questions/34714462/updating-variable-changes-in-components-from-a-service-with-angular2
-  appPostCode: string = thisString;
+  appPostCode: string;
+  appWeather: string;
 
   constructor(public navCtrl: NavController) {
+    
   }  
+
+  runClick(){
+    this.appPostCode = postCode;
+    this.appWeather = weather;
+  }
 
   initMap(e) {
 
-    var map;
-    
+    var map;    
     var weather;
 
     // this method gets the longitude and latitude
@@ -68,11 +75,9 @@ export class HomePage {
 
       var r = JSON.parse(req.response);
       postCode = r.result[0].postcode;
-      console.log("postcode: " + postCode);    
-
-      thisString = postCode.toString();
-
-      console.log("thisString: " + thisString);
+      console.log("postcode: " + postCode);       
+      
+      return postCode;
     }
 
     // gets weather based upon lon+lat from openweather
@@ -83,7 +88,7 @@ export class HomePage {
       req.send(null);
 
       var r = JSON.parse(req.response);
-      var weather = r.weather[0].main;
+      weather = r.weather[0].main;
       console.log("weather is:" + weather);
     }   
   }  

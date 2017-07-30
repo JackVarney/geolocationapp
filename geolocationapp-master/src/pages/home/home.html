@@ -7,14 +7,13 @@
 </ion-header>
 
 <ion-content id="everything" padding>
-`
 
   <p>
     Geo Location Example
   </p>
 
   <ion-row>
-    <ion-col width-50 style="text-align: center">      
+    <ion-col width-50 style="text-align: center">
       <button id="btnClickMe" (tap)="initMap($event)">click me {{postCode}}</button><br>
     </ion-col>
   </ion-row>
@@ -24,17 +23,13 @@
   <!--area the map is displayed in-->
   <div id="map"></div>
 
-
-  <div *ngFor = 'let lst of appList'>
+  <ion-card>
     <ul>
-      <li>{{lst.ID}}</li>
+      <li>Postcode: {{appPostCode}}</li>
     </ul>
-  </div>
-
-
-  <ion-card id="ionCard" >
-    Postcode: {{appPostCode}}
   </ion-card>
+
+  <button (click)="runClick()">swag</button>
 
 
 </ion-content>
