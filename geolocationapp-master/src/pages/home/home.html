@@ -6,30 +6,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content id="everything" padding>
-
-  <p>
-    Geo Location Example
-  </p>
-
-  <ion-row>
-    <ion-col width-50 style="text-align: center">
-      <button id="btnClickMe" (tap)="initMap($event)">click me {{postCode}}</button><br>
-    </ion-col>
-  </ion-row>
+<ion-content id="everything" (tap)="initMap($event)">
 
   <!--adds space between the button and the map-->
   <div style="padding-top: 1%"></div>
   <!--area the map is displayed in-->
   <div id="map"></div>
 
-  <ion-card>
-    <ul>
-      <li>Postcode: {{appPostCode}}</li>
-    </ul>
-  </ion-card>
-
-  <button (click)="runClick()">swag</button>
-
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>{{appPostCode}}</ion-col>
+      <ion-col>{{appWeather}}</ion-col>
+      <ion-col>{{appAdminArea}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
